@@ -1,0 +1,61 @@
+[
+  {
+    "id": "order-status",
+    "title": "Where is my order?",
+    "request": "Where is order 4471?",
+    "route": "order_status",
+    "ok": true,
+    "shows": [
+      "routing",
+      "tool use"
+    ],
+    "total_ms": 0.36
+  },
+  {
+    "id": "shipping-retry",
+    "title": "Shipping that fails twice",
+    "request": "What does it cost to ship 7 kg to zone C?",
+    "route": "shipping_quote",
+    "ok": true,
+    "shows": [
+      "tool use",
+      "retry with backoff"
+    ],
+    "total_ms": 156.62
+  },
+  {
+    "id": "draft-reply",
+    "title": "Draft a reply",
+    "request": "Draft a reply to a customer asking where their parcel is.",
+    "route": "draft_reply",
+    "ok": true,
+    "shows": [
+      "routing",
+      "chaining: fetch facts, then write"
+    ],
+    "total_ms": 0.56
+  },
+  {
+    "id": "judge-revise",
+    "title": "A draft that overpromises",
+    "request": "Where is order 5102?",
+    "route": "order_status",
+    "ok": true,
+    "shows": [
+      "evaluator",
+      "revision"
+    ],
+    "total_ms": 0.72
+  },
+  {
+    "id": "out-of-scope",
+    "title": "Something with no tool",
+    "request": "What is the weather in Kochi today?",
+    "route": "out_of_scope",
+    "ok": false,
+    "shows": [
+      "routing refusal"
+    ],
+    "total_ms": 0.08
+  }
+]

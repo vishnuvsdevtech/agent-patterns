@@ -1,0 +1,163 @@
+{
+  "steps": [
+    {
+      "i": 1,
+      "kind": "request",
+      "name": "customer message",
+      "ms": 0.0,
+      "attempt": 0,
+      "detail": {
+        "text": "Draft a reply to a customer asking where their parcel is."
+      }
+    },
+    {
+      "i": 2,
+      "kind": "route",
+      "name": "draft_reply",
+      "ms": 0.06,
+      "attempt": 0,
+      "detail": {
+        "confidence": 0.9,
+        "why": [
+          "draft_reply: asks for a written reply (weight 3)",
+          "order_status: mentions an order (weight 2)"
+        ]
+      }
+    },
+    {
+      "i": 3,
+      "kind": "plan",
+      "name": "draft_reply",
+      "ms": 0.36,
+      "attempt": 0,
+      "detail": {
+        "args": {
+          "tone": "plain",
+          "facts": {
+            "order": {
+              "order_id": "4471",
+              "customer": "Nithya R",
+              "status": "in transit",
+              "zone": "B",
+              "placed": "2026-11-18",
+              "eta": "2026-11-25",
+              "items": 2
+            }
+          }
+        }
+      }
+    },
+    {
+      "i": 4,
+      "kind": "tool_call",
+      "name": "draft_reply",
+      "ms": 0.37,
+      "attempt": 1,
+      "detail": {
+        "args": {
+          "tone": "plain",
+          "facts": {
+            "order": {
+              "order_id": "4471",
+              "customer": "Nithya R",
+              "status": "in transit",
+              "zone": "B",
+              "placed": "2026-11-18",
+              "eta": "2026-11-25",
+              "items": 2
+            }
+          }
+        }
+      }
+    },
+    {
+      "i": 5,
+      "kind": "tool_result",
+      "name": "draft_reply",
+      "ms": 0.38,
+      "attempt": 1,
+      "detail": {
+        "result": {
+          "tone": "plain",
+          "body": "Thanks for writing in \u2014 we will get back to you shortly.",
+          "chars": 56
+        }
+      }
+    },
+    {
+      "i": 6,
+      "kind": "plan",
+      "name": "lookup_order",
+      "ms": 0.39,
+      "attempt": 0,
+      "detail": {
+        "note": "draft needs facts; fetching the referenced order"
+      }
+    },
+    {
+      "i": 7,
+      "kind": "tool_result",
+      "name": "lookup_order",
+      "ms": 0.4,
+      "attempt": 0,
+      "detail": {
+        "result": {
+          "order_id": "4471",
+          "customer": "Nithya R",
+          "status": "in transit",
+          "zone": "B",
+          "placed": "2026-11-18",
+          "eta": "2026-11-25",
+          "items": 2
+        }
+      }
+    },
+    {
+      "i": 8,
+      "kind": "tool_result",
+      "name": "draft_reply",
+      "ms": 0.41,
+      "attempt": 1,
+      "detail": {
+        "result": {
+          "tone": "plain",
+          "body": "Hello Nithya R, order 4471 is in transit and should reach you by 2026-11-25. If it has not arrived by then, reply to this message and we will chase it.",
+          "chars": 151
+        }
+      }
+    },
+    {
+      "i": 9,
+      "kind": "judge",
+      "name": "self-check",
+      "ms": 0.44,
+      "attempt": 0,
+      "detail": {
+        "passed": true,
+        "problems": []
+      }
+    },
+    {
+      "i": 10,
+      "kind": "answer",
+      "name": "delivered",
+      "ms": 0.44,
+      "attempt": 0,
+      "detail": {
+        "chars": 151
+      }
+    }
+  ],
+  "total_ms": 0.56,
+  "request": "Draft a reply to a customer asking where their parcel is.",
+  "ok": true,
+  "route": "draft_reply",
+  "answer": "Hello Nithya R, order 4471 is in transit and should reach you by 2026-11-25. If it has not arrived by then, reply to this message and we will chase it.",
+  "id": "draft-reply",
+  "title": "Draft a reply",
+  "shows": [
+    "routing",
+    "chaining: fetch facts, then write"
+  ],
+  "attempt_count": 1
+}

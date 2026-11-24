@@ -1,0 +1,170 @@
+{
+  "steps": [
+    {
+      "i": 1,
+      "kind": "request",
+      "name": "customer message",
+      "ms": 0.0,
+      "attempt": 0,
+      "detail": {
+        "text": "What does it cost to ship 7 kg to zone C?"
+      }
+    },
+    {
+      "i": 2,
+      "kind": "route",
+      "name": "shipping_quote",
+      "ms": 0.02,
+      "attempt": 0,
+      "detail": {
+        "confidence": 0.9,
+        "why": [
+          "shipping_quote: asks about shipping or weight (weight 2)"
+        ]
+      }
+    },
+    {
+      "i": 3,
+      "kind": "plan",
+      "name": "shipping_quote",
+      "ms": 0.1,
+      "attempt": 0,
+      "detail": {
+        "args": {
+          "zone": "C",
+          "kg": 7.0
+        }
+      }
+    },
+    {
+      "i": 4,
+      "kind": "tool_call",
+      "name": "shipping_quote",
+      "ms": 0.1,
+      "attempt": 1,
+      "detail": {
+        "args": {
+          "zone": "C",
+          "kg": 7.0
+        }
+      }
+    },
+    {
+      "i": 5,
+      "kind": "tool_error",
+      "name": "shipping_quote",
+      "ms": 0.11,
+      "attempt": 1,
+      "detail": {
+        "error": "shipping_quote: upstream returned 503 (attempt 1)"
+      }
+    },
+    {
+      "i": 6,
+      "kind": "retry",
+      "name": "shipping_quote",
+      "ms": 0.11,
+      "attempt": 1,
+      "detail": {
+        "in_ms": 50,
+        "reason": "transient error"
+      }
+    },
+    {
+      "i": 7,
+      "kind": "tool_call",
+      "name": "shipping_quote",
+      "ms": 51.44,
+      "attempt": 2,
+      "detail": {
+        "args": {
+          "zone": "C",
+          "kg": 7.0
+        }
+      }
+    },
+    {
+      "i": 8,
+      "kind": "tool_error",
+      "name": "shipping_quote",
+      "ms": 51.46,
+      "attempt": 2,
+      "detail": {
+        "error": "shipping_quote: upstream returned 503 (attempt 2)"
+      }
+    },
+    {
+      "i": 9,
+      "kind": "retry",
+      "name": "shipping_quote",
+      "ms": 51.46,
+      "attempt": 2,
+      "detail": {
+        "in_ms": 100,
+        "reason": "transient error"
+      }
+    },
+    {
+      "i": 10,
+      "kind": "tool_call",
+      "name": "shipping_quote",
+      "ms": 156.27,
+      "attempt": 3,
+      "detail": {
+        "args": {
+          "zone": "C",
+          "kg": 7.0
+        }
+      }
+    },
+    {
+      "i": 11,
+      "kind": "tool_result",
+      "name": "shipping_quote",
+      "ms": 156.36,
+      "attempt": 3,
+      "detail": {
+        "result": {
+          "zone": "C",
+          "kg": 7.0,
+          "rate_per_kg": 90,
+          "total_inr": 606.0,
+          "breakdown": "5 kg x 90 + 2 kg x 78"
+        }
+      }
+    },
+    {
+      "i": 12,
+      "kind": "judge",
+      "name": "self-check",
+      "ms": 156.43,
+      "attempt": 0,
+      "detail": {
+        "passed": true,
+        "problems": []
+      }
+    },
+    {
+      "i": 13,
+      "kind": "answer",
+      "name": "delivered",
+      "ms": 156.44,
+      "attempt": 0,
+      "detail": {
+        "chars": 58
+      }
+    }
+  ],
+  "total_ms": 156.62,
+  "request": "What does it cost to ship 7 kg to zone C?",
+  "ok": true,
+  "route": "shipping_quote",
+  "answer": "Shipping 7 kg to zone C is Rs 606 (5 kg x 90 + 2 kg x 78).",
+  "id": "shipping-retry",
+  "title": "Shipping that fails twice",
+  "shows": [
+    "tool use",
+    "retry with backoff"
+  ],
+  "attempt_count": 3
+}

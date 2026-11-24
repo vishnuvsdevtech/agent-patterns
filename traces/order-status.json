@@ -1,0 +1,102 @@
+{
+  "steps": [
+    {
+      "i": 1,
+      "kind": "request",
+      "name": "customer message",
+      "ms": 0.0,
+      "attempt": 0,
+      "detail": {
+        "text": "Where is order 4471?"
+      }
+    },
+    {
+      "i": 2,
+      "kind": "route",
+      "name": "order_status",
+      "ms": 0.22,
+      "attempt": 0,
+      "detail": {
+        "confidence": 0.9,
+        "why": [
+          "order_status: mentions an order (weight 2)"
+        ]
+      }
+    },
+    {
+      "i": 3,
+      "kind": "plan",
+      "name": "lookup_order",
+      "ms": 0.26,
+      "attempt": 0,
+      "detail": {
+        "args": {
+          "order_id": "4471"
+        }
+      }
+    },
+    {
+      "i": 4,
+      "kind": "tool_call",
+      "name": "lookup_order",
+      "ms": 0.26,
+      "attempt": 1,
+      "detail": {
+        "args": {
+          "order_id": "4471"
+        }
+      }
+    },
+    {
+      "i": 5,
+      "kind": "tool_result",
+      "name": "lookup_order",
+      "ms": 0.26,
+      "attempt": 1,
+      "detail": {
+        "result": {
+          "order_id": "4471",
+          "customer": "Nithya R",
+          "status": "in transit",
+          "zone": "B",
+          "placed": "2026-11-18",
+          "eta": "2026-11-25",
+          "items": 2
+        }
+      }
+    },
+    {
+      "i": 6,
+      "kind": "judge",
+      "name": "self-check",
+      "ms": 0.32,
+      "attempt": 0,
+      "detail": {
+        "passed": true,
+        "problems": []
+      }
+    },
+    {
+      "i": 7,
+      "kind": "answer",
+      "name": "delivered",
+      "ms": 0.32,
+      "attempt": 0,
+      "detail": {
+        "chars": 89
+      }
+    }
+  ],
+  "total_ms": 0.36,
+  "request": "Where is order 4471?",
+  "ok": true,
+  "route": "order_status",
+  "answer": "Order 4471 for Nithya R is in transit. Placed 2026-11-18, expected 2026-11-25, 2 item(s).",
+  "id": "order-status",
+  "title": "Where is my order?",
+  "shows": [
+    "routing",
+    "tool use"
+  ],
+  "attempt_count": 1
+}

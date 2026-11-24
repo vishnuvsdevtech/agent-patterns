@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agent harness — five traces, one recorded failure</title>
+<meta name="description" content="A small agent harness with routing, tool calls, retries and a judge, replayed step by step from real recorded runs. Includes the two failures.">
+<meta name="theme-color" content="#0b0f0e">
+<link rel="canonical" href="https://vishnuvsdevtech.github.io/agent-patterns/">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="brand"><span class="dot"></span><span class="mono">AGENT HARNESS · RECORDED RUNS</span></div>
+  <div class="right">
+    <button class="icon" id="theme" title="theme">◐</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <p class="eyebrow mono">routing · tool use · retries · a judge that disagrees</p>
+    <h1>The trace is the <em>deliverable</em></h1>
+    <p class="lede">Five runs of one small harness, replayed step by step from the JSON it wrote while running.
+    Two of them fail on purpose: a tool that returns 503 twice, and a draft that overpromises. Everything below is
+    recorded output — nothing is illustrated.</p>
+  </section>
+
+  <div class="cols">
+    <nav class="runs" id="runs" aria-label="Scenarios"></nav>
+
+    <section class="trace" id="trace" aria-live="polite">
+      <div class="trace-head">
+        <div>
+          <p class="mono runs-label" id="runMeta">—</p>
+          <h2 id="runTitle">—</h2>
+        </div>
+        <button class="btn" id="replay">Replay ▸</button>
+      </div>
+
+      <div class="ask" id="ask"></div>
+      <div class="verdict" id="verdict"></div>
+      <ol class="steps" id="steps"></ol>
+      <div class="answer" id="answer"></div>
+    </section>
+  </div>
+
+  <section class="notes">
+    <h2>What each run proves</h2>
+    <div class="grid" id="claims"></div>
+  </section>
+
+  <section class="limits">
+    <h2>Limits, stated rather than discovered</h2>
+    <p>The brain in these traces is a rule set, not a model — that is why the whole thing runs with no key, no
+    network and no cost, and why every routing decision shows its weights. <code>ModelBrain</code> has the same
+    three methods and calls an OpenAI-compatible endpoint when <code>DEEPSEEK_API_KEY</code> is set; the harness
+    around it does not change, which is the point: routing, retries, judging and tracing are harness work, not
+    model work. The tools are local fixtures, so the 503s are injected, not real outages — the retry path is real,
+    the outage is simulated.</p>
+  </section>
+</main>
+
+<footer class="foot mono">
+  <span>agent-patterns · Python stdlib only</span>
+  <span>python3 cli.py · python3 selftest.py</span>
+</footer>
+
+<script src="assets/traces.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
