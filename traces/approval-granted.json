@@ -14,7 +14,7 @@
       "i": 2,
       "kind": "budget",
       "name": "run ceiling",
-      "ms": 0.01,
+      "ms": 0.02,
       "attempt": 0,
       "detail": {
         "ceiling": 0.02
@@ -24,7 +24,7 @@
       "i": 3,
       "kind": "route",
       "name": "draft_reply",
-      "ms": 0.03,
+      "ms": 0.07,
       "attempt": 0,
       "detail": {
         "confidence": 0.9,
@@ -38,12 +38,12 @@
       "i": 4,
       "kind": "plan",
       "name": "draft_reply",
-      "ms": 0.04,
+      "ms": 0.09,
       "attempt": 0,
       "detail": {
         "args": {
           "tone": "plain",
-          "facts": {}
+          "order_id": "4471"
         }
       }
     },
@@ -51,12 +51,12 @@
       "i": 5,
       "kind": "approval_request",
       "name": "draft_reply",
-      "ms": 0.05,
+      "ms": 0.1,
       "attempt": 0,
       "detail": {
         "args": {
           "tone": "plain",
-          "facts": {}
+          "order_id": "4471"
         },
         "cost": 0.006
       }
@@ -65,7 +65,7 @@
       "i": 6,
       "kind": "approval_granted",
       "name": "draft_reply",
-      "ms": 0.05,
+      "ms": 0.1,
       "attempt": 0,
       "detail": {
         "approver": "yes"
@@ -75,12 +75,12 @@
       "i": 7,
       "kind": "tool_call",
       "name": "draft_reply",
-      "ms": 0.05,
+      "ms": 0.11,
       "attempt": 1,
       "detail": {
         "args": {
           "tone": "plain",
-          "facts": {}
+          "order_id": "4471"
         }
       }
     },
@@ -88,13 +88,22 @@
       "i": 8,
       "kind": "tool_result",
       "name": "draft_reply",
-      "ms": 0.06,
+      "ms": 0.12,
       "attempt": 1,
       "detail": {
         "result": {
+          "order": {
+            "order_id": "4471",
+            "customer": "Nithya R",
+            "status": "in transit",
+            "zone": "B",
+            "placed": "2026-11-18",
+            "eta": "2026-11-25",
+            "items": 2
+          },
           "tone": "plain",
-          "body": "Thanks for writing in \u2014 we will get back to you shortly.",
-          "chars": 56
+          "body": "Hello Nithya R, order 4471 is in transit and should reach you by 2026-11-25. If it has not arrived by then, reply to this message and we will chase it.",
+          "chars": 151
         }
       }
     },
@@ -102,7 +111,7 @@
       "i": 9,
       "kind": "charge",
       "name": "draft_reply",
-      "ms": 0.06,
+      "ms": 0.13,
       "attempt": 0,
       "detail": {
         "cost": 0.006,
@@ -114,7 +123,7 @@
       "i": 10,
       "kind": "judge",
       "name": "self-check",
-      "ms": 0.08,
+      "ms": 0.15,
       "attempt": 0,
       "detail": {
         "passed": true,
@@ -125,14 +134,14 @@
       "i": 11,
       "kind": "answer",
       "name": "delivered",
-      "ms": 0.08,
+      "ms": 0.15,
       "attempt": 0,
       "detail": {
-        "chars": 56
+        "chars": 151
       }
     }
   ],
-  "total_ms": 0.15,
+  "total_ms": 0.24,
   "request": "Draft an apologetic reply about order 4471.",
   "ok": true,
   "route": "draft_reply",
@@ -142,7 +151,7 @@
     "calls": 1,
     "left": 0.014
   },
-  "answer": "Thanks for writing in \u2014 we will get back to you shortly.",
+  "answer": "Hello Nithya R, order 4471 is in transit and should reach you by 2026-11-25. If it has not arrived by then, reply to this message and we will chase it.",
   "id": "approval-granted",
   "title": "A reply a human allows",
   "shows": [

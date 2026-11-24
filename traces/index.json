@@ -9,7 +9,7 @@
       "routing",
       "tool use"
     ],
-    "total_ms": 0.31,
+    "total_ms": 0.33,
     "budget": {
       "ceiling": 0.02,
       "spent": 0.004,
@@ -27,7 +27,7 @@
       "tool use",
       "retry with backoff"
     ],
-    "total_ms": 157.05,
+    "total_ms": 155.5,
     "budget": {
       "ceiling": 0.02,
       "spent": 0.003,
@@ -45,7 +45,7 @@
       "routing",
       "chaining: fetch facts, then write"
     ],
-    "total_ms": 0.37,
+    "total_ms": 0.5,
     "budget": {
       "ceiling": 0.02,
       "spent": 0.006,
@@ -63,7 +63,7 @@
       "evaluator",
       "revision"
     ],
-    "total_ms": 0.45,
+    "total_ms": 0.52,
     "budget": {
       "ceiling": 0.02,
       "spent": 0.004,
@@ -80,7 +80,7 @@
     "shows": [
       "routing refusal"
     ],
-    "total_ms": 0.06,
+    "total_ms": 0.13,
     "budget": {
       "ceiling": 0.02,
       "spent": 0.0,
@@ -97,7 +97,7 @@
     "shows": [
       "spend guard"
     ],
-    "total_ms": 0.32,
+    "total_ms": 0.39,
     "budget": {
       "ceiling": 0.02,
       "spent": 0.018,
@@ -114,7 +114,7 @@
     "shows": [
       "approval gate, granted"
     ],
-    "total_ms": 0.15,
+    "total_ms": 0.24,
     "budget": {
       "ceiling": 0.02,
       "spent": 0.006,
@@ -131,7 +131,7 @@
     "shows": [
       "approval gate, denied"
     ],
-    "total_ms": 0.08,
+    "total_ms": 0.1,
     "budget": {
       "ceiling": 0.02,
       "spent": 0.0,

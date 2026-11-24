@@ -24,7 +24,7 @@
       "i": 3,
       "kind": "route",
       "name": "draft_reply",
-      "ms": 0.03,
+      "ms": 0.04,
       "attempt": 0,
       "detail": {
         "confidence": 0.9,
@@ -38,12 +38,12 @@
       "i": 4,
       "kind": "plan",
       "name": "draft_reply",
-      "ms": 0.03,
+      "ms": 0.05,
       "attempt": 0,
       "detail": {
         "args": {
           "tone": "plain",
-          "facts": {}
+          "order_id": "4471"
         }
       }
     },
@@ -51,12 +51,12 @@
       "i": 5,
       "kind": "approval_request",
       "name": "draft_reply",
-      "ms": 0.04,
+      "ms": 0.06,
       "attempt": 0,
       "detail": {
         "args": {
           "tone": "plain",
-          "facts": {}
+          "order_id": "4471"
         },
         "cost": 0.006
       }
@@ -65,14 +65,14 @@
       "i": 6,
       "kind": "approval_denied",
       "name": "draft_reply",
-      "ms": 0.04,
+      "ms": 0.06,
       "attempt": 0,
       "detail": {
         "note": "no approver said yes; the tool was not called"
       }
     }
   ],
-  "total_ms": 0.08,
+  "total_ms": 0.1,
   "request": "Draft an apologetic reply about order 4471.",
   "ok": false,
   "route": "draft_reply",

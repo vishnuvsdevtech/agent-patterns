@@ -125,6 +125,7 @@ def handle(request: str, brain, tracer: Tracer | None = None,
             facts["quote"] = result
         elif tool_name == "draft_reply":
             facts["draft"] = result
+            facts["order"] = result.get("order") or facts.get("order")
 
     # 5. the answer is assembled from facts, never invented
     if "draft" in facts:

@@ -14,7 +14,7 @@
       "i": 2,
       "kind": "budget",
       "name": "run ceiling",
-      "ms": 0.01,
+      "ms": 0.02,
       "attempt": 0,
       "detail": {
         "ceiling": 0.02
@@ -24,7 +24,7 @@
       "i": 3,
       "kind": "route",
       "name": "out_of_scope",
-      "ms": 0.03,
+      "ms": 0.05,
       "attempt": 0,
       "detail": {
         "confidence": 0.0,
@@ -37,14 +37,14 @@
       "i": 4,
       "kind": "refuse",
       "name": "out of scope",
-      "ms": 0.03,
+      "ms": 0.09,
       "attempt": 0,
       "detail": {
         "text": "This harness only covers order status, shipping quotes and reply drafts."
       }
     }
   ],
-  "total_ms": 0.06,
+  "total_ms": 0.13,
   "request": "What is the weather in Kochi today?",
   "ok": false,
   "route": "out_of_scope",

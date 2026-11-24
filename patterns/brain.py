@@ -77,7 +77,8 @@ class RuleBrain:
                 kg = float(m.group(1))
             return {"tool": "shipping_quote", "args": {"zone": zone, "kg": kg}}
         tone = "apologetic" if re.search(r"late|delay|sorry|complain", q) else "plain"
-        return {"tool": "draft_reply", "args": {"tone": tone, "facts": {}}}
+        m = re.search(r"\b(\d{3,6})\b", q)
+        return {"tool": "draft_reply", "args": {"tone": tone, "order_id": m.group(1) if m else "4471"}}
 
     def judge(self, request: str, answer: str, facts: dict) -> dict:
         """Cheap checker: does the answer use the facts it was given, or invent?"""

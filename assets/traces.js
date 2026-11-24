@@ -25,7 +25,7 @@ window.TRACES = [
     "i": 3,
     "kind": "route",
     "name": "order_status",
-    "ms": 0.2,
+    "ms": 0.21,
     "attempt": 0,
     "detail": {
      "confidence": 0.9,
@@ -38,7 +38,7 @@ window.TRACES = [
     "i": 4,
     "kind": "plan",
     "name": "lookup_order",
-    "ms": 0.22,
+    "ms": 0.24,
     "attempt": 0,
     "detail": {
      "args": {
@@ -50,7 +50,7 @@ window.TRACES = [
     "i": 5,
     "kind": "tool_call",
     "name": "lookup_order",
-    "ms": 0.23,
+    "ms": 0.24,
     "attempt": 1,
     "detail": {
      "args": {
@@ -62,7 +62,7 @@ window.TRACES = [
     "i": 6,
     "kind": "tool_result",
     "name": "lookup_order",
-    "ms": 0.23,
+    "ms": 0.25,
     "attempt": 1,
     "detail": {
      "result": {
@@ -80,7 +80,7 @@ window.TRACES = [
     "i": 7,
     "kind": "charge",
     "name": "lookup_order",
-    "ms": 0.23,
+    "ms": 0.25,
     "attempt": 0,
     "detail": {
      "cost": 0.004,
@@ -92,7 +92,7 @@ window.TRACES = [
     "i": 8,
     "kind": "judge",
     "name": "self-check",
-    "ms": 0.28,
+    "ms": 0.3,
     "attempt": 0,
     "detail": {
      "passed": true,
@@ -103,14 +103,14 @@ window.TRACES = [
     "i": 9,
     "kind": "answer",
     "name": "delivered",
-    "ms": 0.28,
+    "ms": 0.3,
     "attempt": 0,
     "detail": {
      "chars": 89
     }
    }
   ],
-  "total_ms": 0.31,
+  "total_ms": 0.33,
   "request": "Where is order 4471?",
   "ok": true,
   "route": "order_status",
@@ -145,7 +145,7 @@ window.TRACES = [
     "i": 2,
     "kind": "budget",
     "name": "run ceiling",
-    "ms": 0.0,
+    "ms": 0.01,
     "attempt": 0,
     "detail": {
      "ceiling": 0.02
@@ -168,7 +168,7 @@ window.TRACES = [
     "i": 4,
     "kind": "plan",
     "name": "shipping_quote",
-    "ms": 0.09,
+    "ms": 0.11,
     "attempt": 0,
     "detail": {
      "args": {
@@ -181,7 +181,7 @@ window.TRACES = [
     "i": 5,
     "kind": "tool_call",
     "name": "shipping_quote",
-    "ms": 0.09,
+    "ms": 0.12,
     "attempt": 1,
     "detail": {
      "args": {
@@ -194,7 +194,7 @@ window.TRACES = [
     "i": 6,
     "kind": "tool_error",
     "name": "shipping_quote",
-    "ms": 0.1,
+    "ms": 0.12,
     "attempt": 1,
     "detail": {
      "error": "shipping_quote: upstream returned 503 (attempt 1)"
@@ -204,7 +204,7 @@ window.TRACES = [
     "i": 7,
     "kind": "retry",
     "name": "shipping_quote",
-    "ms": 0.1,
+    "ms": 0.12,
     "attempt": 1,
     "detail": {
      "in_ms": 50,
@@ -215,7 +215,7 @@ window.TRACES = [
     "i": 8,
     "kind": "tool_call",
     "name": "shipping_quote",
-    "ms": 54.14,
+    "ms": 51.58,
     "attempt": 2,
     "detail": {
      "args": {
@@ -228,7 +228,7 @@ window.TRACES = [
     "i": 9,
     "kind": "tool_error",
     "name": "shipping_quote",
-    "ms": 54.2,
+    "ms": 51.59,
     "attempt": 2,
     "detail": {
      "error": "shipping_quote: upstream returned 503 (attempt 2)"
@@ -238,7 +238,7 @@ window.TRACES = [
     "i": 10,
     "kind": "retry",
     "name": "shipping_quote",
-    "ms": 54.21,
+    "ms": 51.6,
     "attempt": 2,
     "detail": {
      "in_ms": 100,
@@ -249,7 +249,7 @@ window.TRACES = [
     "i": 11,
     "kind": "tool_call",
     "name": "shipping_quote",
-    "ms": 156.72,
+    "ms": 155.21,
     "attempt": 3,
     "detail": {
      "args": {
@@ -262,7 +262,7 @@ window.TRACES = [
     "i": 12,
     "kind": "tool_result",
     "name": "shipping_quote",
-    "ms": 156.83,
+    "ms": 155.3,
     "attempt": 3,
     "detail": {
      "result": {
@@ -278,7 +278,7 @@ window.TRACES = [
     "i": 13,
     "kind": "charge",
     "name": "shipping_quote",
-    "ms": 156.84,
+    "ms": 155.3,
     "attempt": 0,
     "detail": {
      "cost": 0.003,
@@ -290,7 +290,7 @@ window.TRACES = [
     "i": 14,
     "kind": "judge",
     "name": "self-check",
-    "ms": 156.91,
+    "ms": 155.37,
     "attempt": 0,
     "detail": {
      "passed": true,
@@ -301,14 +301,14 @@ window.TRACES = [
     "i": 15,
     "kind": "answer",
     "name": "delivered",
-    "ms": 156.92,
+    "ms": 155.37,
     "attempt": 0,
     "detail": {
      "chars": 58
     }
    }
   ],
-  "total_ms": 157.05,
+  "total_ms": 155.5,
   "request": "What does it cost to ship 7 kg to zone C?",
   "ok": true,
   "route": "shipping_quote",
@@ -333,7 +333,7 @@ window.TRACES = [
     "i": 1,
     "kind": "request",
     "name": "customer message",
-    "ms": 0.0,
+    "ms": 0.01,
     "attempt": 0,
     "detail": {
      "text": "Draft a reply to a customer asking where their parcel is."
@@ -343,7 +343,7 @@ window.TRACES = [
     "i": 2,
     "kind": "budget",
     "name": "run ceiling",
-    "ms": 0.01,
+    "ms": 0.03,
     "attempt": 0,
     "detail": {
      "ceiling": 0.02
@@ -367,12 +367,12 @@ window.TRACES = [
     "i": 4,
     "kind": "plan",
     "name": "draft_reply",
-    "ms": 0.25,
+    "ms": 0.32,
     "attempt": 0,
     "detail": {
      "args": {
       "tone": "plain",
-      "facts": {}
+      "order_id": "4471"
      }
     }
    },
@@ -380,12 +380,12 @@ window.TRACES = [
     "i": 5,
     "kind": "approval_request",
     "name": "draft_reply",
-    "ms": 0.26,
+    "ms": 0.34,
     "attempt": 0,
     "detail": {
      "args": {
       "tone": "plain",
-      "facts": {}
+      "order_id": "4471"
      },
      "cost": 0.006
     }
@@ -394,7 +394,7 @@ window.TRACES = [
     "i": 6,
     "kind": "approval_granted",
     "name": "draft_reply",
-    "ms": 0.26,
+    "ms": 0.35,
     "attempt": 0,
     "detail": {
      "approver": "yes"
@@ -404,12 +404,12 @@ window.TRACES = [
     "i": 7,
     "kind": "tool_call",
     "name": "draft_reply",
-    "ms": 0.27,
+    "ms": 0.35,
     "attempt": 1,
     "detail": {
      "args": {
       "tone": "plain",
-      "facts": {}
+      "order_id": "4471"
      }
     }
    },
@@ -417,13 +417,22 @@ window.TRACES = [
     "i": 8,
     "kind": "tool_result",
     "name": "draft_reply",
-    "ms": 0.27,
+    "ms": 0.37,
     "attempt": 1,
     "detail": {
      "result": {
+      "order": {
+       "order_id": "4471",
+       "customer": "Nithya R",
+       "status": "in transit",
+       "zone": "B",
+       "placed": "2026-11-18",
+       "eta": "2026-11-25",
+       "items": 2
+      },
       "tone": "plain",
-      "body": "Thanks for writing in \u2014 we will get back to you shortly.",
-      "chars": 56
+      "body": "Hello Nithya R, order 4471 is in transit and should reach you by 2026-11-25. If it has not arrived by then, reply to this message and we will chase it.",
+      "chars": 151
      }
     }
    },
@@ -431,7 +440,7 @@ window.TRACES = [
     "i": 9,
     "kind": "charge",
     "name": "draft_reply",
-    "ms": 0.28,
+    "ms": 0.38,
     "attempt": 0,
     "detail": {
      "cost": 0.006,
@@ -443,7 +452,7 @@ window.TRACES = [
     "i": 10,
     "kind": "judge",
     "name": "self-check",
-    "ms": 0.3,
+    "ms": 0.4,
     "attempt": 0,
     "detail": {
      "passed": true,
@@ -454,14 +463,14 @@ window.TRACES = [
     "i": 11,
     "kind": "answer",
     "name": "delivered",
-    "ms": 0.3,
+    "ms": 0.41,
     "attempt": 0,
     "detail": {
-     "chars": 56
+     "chars": 151
     }
    }
   ],
-  "total_ms": 0.37,
+  "total_ms": 0.5,
   "request": "Draft a reply to a customer asking where their parcel is.",
   "ok": true,
   "route": "draft_reply",
@@ -471,7 +480,7 @@ window.TRACES = [
    "calls": 1,
    "left": 0.014
   },
-  "answer": "Thanks for writing in \u2014 we will get back to you shortly.",
+  "answer": "Hello Nithya R, order 4471 is in transit and should reach you by 2026-11-25. If it has not arrived by then, reply to this message and we will chase it.",
   "id": "draft-reply",
   "title": "Draft a reply",
   "shows": [
@@ -496,7 +505,7 @@ window.TRACES = [
     "i": 2,
     "kind": "budget",
     "name": "run ceiling",
-    "ms": 0.01,
+    "ms": 0.02,
     "attempt": 0,
     "detail": {
      "ceiling": 0.02
@@ -506,7 +515,7 @@ window.TRACES = [
     "i": 3,
     "kind": "route",
     "name": "order_status",
-    "ms": 0.03,
+    "ms": 0.06,
     "attempt": 0,
     "detail": {
      "confidence": 0.9,
@@ -519,7 +528,7 @@ window.TRACES = [
     "i": 4,
     "kind": "plan",
     "name": "lookup_order",
-    "ms": 0.04,
+    "ms": 0.07,
     "attempt": 0,
     "detail": {
      "args": {
@@ -531,7 +540,7 @@ window.TRACES = [
     "i": 5,
     "kind": "tool_call",
     "name": "lookup_order",
-    "ms": 0.05,
+    "ms": 0.08,
     "attempt": 1,
     "detail": {
      "args": {
@@ -543,7 +552,7 @@ window.TRACES = [
     "i": 6,
     "kind": "tool_result",
     "name": "lookup_order",
-    "ms": 0.06,
+    "ms": 0.09,
     "attempt": 1,
     "detail": {
      "result": {
@@ -561,7 +570,7 @@ window.TRACES = [
     "i": 7,
     "kind": "charge",
     "name": "lookup_order",
-    "ms": 0.06,
+    "ms": 0.09,
     "attempt": 0,
     "detail": {
      "cost": 0.004,
@@ -573,7 +582,7 @@ window.TRACES = [
     "i": 8,
     "kind": "judge",
     "name": "self-check",
-    "ms": 0.08,
+    "ms": 0.11,
     "attempt": 0,
     "detail": {
      "passed": false,
@@ -586,7 +595,7 @@ window.TRACES = [
     "i": 9,
     "kind": "revise",
     "name": "answer rewritten",
-    "ms": 0.36,
+    "ms": 0.43,
     "attempt": 0,
     "detail": {
      "before": "Order 5102 for Anoop S is delivered. Placed 2026-11-11, expected 2026-11-16, 1 item(s). We guarantee delivery by Friday.",
@@ -600,7 +609,7 @@ window.TRACES = [
     "i": 10,
     "kind": "judge",
     "name": "self-check after revision",
-    "ms": 0.37,
+    "ms": 0.44,
     "attempt": 0,
     "detail": {
      "passed": true,
@@ -611,14 +620,14 @@ window.TRACES = [
     "i": 11,
     "kind": "answer",
     "name": "delivered",
-    "ms": 0.38,
+    "ms": 0.45,
     "attempt": 0,
     "detail": {
      "chars": 87
     }
    }
   ],
-  "total_ms": 0.45,
+  "total_ms": 0.52,
   "request": "Where is order 5102?",
   "ok": true,
   "route": "order_status",
@@ -653,7 +662,7 @@ window.TRACES = [
     "i": 2,
     "kind": "budget",
     "name": "run ceiling",
-    "ms": 0.01,
+    "ms": 0.02,
     "attempt": 0,
     "detail": {
      "ceiling": 0.02
@@ -663,7 +672,7 @@ window.TRACES = [
     "i": 3,
     "kind": "route",
     "name": "out_of_scope",
-    "ms": 0.03,
+    "ms": 0.05,
     "attempt": 0,
     "detail": {
      "confidence": 0.0,
@@ -676,14 +685,14 @@ window.TRACES = [
     "i": 4,
     "kind": "refuse",
     "name": "out of scope",
-    "ms": 0.03,
+    "ms": 0.09,
     "attempt": 0,
     "detail": {
      "text": "This harness only covers order status, shipping quotes and reply drafts."
     }
    }
   ],
-  "total_ms": 0.06,
+  "total_ms": 0.13,
   "request": "What is the weather in Kochi today?",
   "ok": false,
   "route": "out_of_scope",
@@ -717,7 +726,7 @@ window.TRACES = [
     "i": 2,
     "kind": "budget",
     "name": "run ceiling",
-    "ms": 0.01,
+    "ms": 0.02,
     "attempt": 0,
     "detail": {
      "ceiling": 0.02
@@ -727,7 +736,7 @@ window.TRACES = [
     "i": 3,
     "kind": "route",
     "name": "shipping_batch",
-    "ms": 0.05,
+    "ms": 0.07,
     "attempt": 0,
     "detail": {
      "confidence": 0.9,
@@ -741,7 +750,7 @@ window.TRACES = [
     "i": 4,
     "kind": "plan",
     "name": "8 calls",
-    "ms": 0.07,
+    "ms": 0.11,
     "attempt": 0,
     "detail": {
      "tools": [
@@ -760,7 +769,7 @@ window.TRACES = [
     "i": 5,
     "kind": "tool_call",
     "name": "shipping_quote",
-    "ms": 0.08,
+    "ms": 0.12,
     "attempt": 1,
     "detail": {
      "args": {
@@ -773,7 +782,7 @@ window.TRACES = [
     "i": 6,
     "kind": "tool_result",
     "name": "shipping_quote",
-    "ms": 0.1,
+    "ms": 0.14,
     "attempt": 1,
     "detail": {
      "result": {
@@ -789,7 +798,7 @@ window.TRACES = [
     "i": 7,
     "kind": "charge",
     "name": "shipping_quote",
-    "ms": 0.1,
+    "ms": 0.15,
     "attempt": 0,
     "detail": {
      "cost": 0.003,
@@ -801,7 +810,7 @@ window.TRACES = [
     "i": 8,
     "kind": "tool_call",
     "name": "shipping_quote",
-    "ms": 0.11,
+    "ms": 0.15,
     "attempt": 1,
     "detail": {
      "args": {
@@ -814,7 +823,7 @@ window.TRACES = [
     "i": 9,
     "kind": "tool_result",
     "name": "shipping_quote",
-    "ms": 0.12,
+    "ms": 0.16,
     "attempt": 1,
     "detail": {
      "result": {
@@ -830,7 +839,7 @@ window.TRACES = [
     "i": 10,
     "kind": "charge",
     "name": "shipping_quote",
-    "ms": 0.12,
+    "ms": 0.17,
     "attempt": 0,
     "detail": {
      "cost": 0.003,
@@ -842,7 +851,7 @@ window.TRACES = [
     "i": 11,
     "kind": "tool_call",
     "name": "shipping_quote",
-    "ms": 0.13,
+    "ms": 0.17,
     "attempt": 1,
     "detail": {
      "args": {
@@ -855,7 +864,7 @@ window.TRACES = [
     "i": 12,
     "kind": "tool_result",
     "name": "shipping_quote",
-    "ms": 0.13,
+    "ms": 0.18,
     "attempt": 1,
     "detail": {
      "result": {
@@ -871,7 +880,7 @@ window.TRACES = [
     "i": 13,
     "kind": "charge",
     "name": "shipping_quote",
-    "ms": 0.14,
+    "ms": 0.18,
     "attempt": 0,
     "detail": {
      "cost": 0.003,
@@ -883,7 +892,7 @@ window.TRACES = [
     "i": 14,
     "kind": "tool_call",
     "name": "shipping_quote",
-    "ms": 0.14,
+    "ms": 0.18,
     "attempt": 1,
     "detail": {
      "args": {
@@ -896,7 +905,7 @@ window.TRACES = [
     "i": 15,
     "kind": "tool_result",
     "name": "shipping_quote",
-    "ms": 0.15,
+    "ms": 0.19,
     "attempt": 1,
     "detail": {
      "result": {
@@ -912,7 +921,7 @@ window.TRACES = [
     "i": 16,
     "kind": "charge",
     "name": "shipping_quote",
-    "ms": 0.15,
+    "ms": 0.19,
     "attempt": 0,
     "detail": {
      "cost": 0.003,
@@ -924,7 +933,7 @@ window.TRACES = [
     "i": 17,
     "kind": "tool_call",
     "name": "shipping_quote",
-    "ms": 0.15,
+    "ms": 0.2,
     "attempt": 1,
     "detail": {
      "args": {
@@ -937,7 +946,7 @@ window.TRACES = [
     "i": 18,
     "kind": "tool_result",
     "name": "shipping_quote",
-    "ms": 0.16,
+    "ms": 0.2,
     "attempt": 1,
     "detail": {
      "result": {
@@ -953,7 +962,7 @@ window.TRACES = [
     "i": 19,
     "kind": "charge",
     "name": "shipping_quote",
-    "ms": 0.16,
+    "ms": 0.21,
     "attempt": 0,
     "detail": {
      "cost": 0.003,
@@ -965,7 +974,7 @@ window.TRACES = [
     "i": 20,
     "kind": "tool_call",
     "name": "shipping_quote",
-    "ms": 0.17,
+    "ms": 0.21,
     "attempt": 1,
     "detail": {
      "args": {
@@ -978,7 +987,7 @@ window.TRACES = [
     "i": 21,
     "kind": "tool_result",
     "name": "shipping_quote",
-    "ms": 0.17,
+    "ms": 0.22,
     "attempt": 1,
     "detail": {
      "result": {
@@ -994,7 +1003,7 @@ window.TRACES = [
     "i": 22,
     "kind": "charge",
     "name": "shipping_quote",
-    "ms": 0.18,
+    "ms": 0.22,
     "attempt": 0,
     "detail": {
      "cost": 0.003,
@@ -1006,7 +1015,7 @@ window.TRACES = [
     "i": 23,
     "kind": "budget_stop",
     "name": "shipping_quote",
-    "ms": 0.18,
+    "ms": 0.23,
     "attempt": 0,
     "detail": {
      "cost": 0.003,
@@ -1017,7 +1026,7 @@ window.TRACES = [
     }
    }
   ],
-  "total_ms": 0.32,
+  "total_ms": 0.39,
   "request": "Quote 3 kg for zone A, zone B, zone C, zone A, zone B, zone C, zone A and zone B.",
   "ok": false,
   "route": "shipping_batch",
@@ -1051,7 +1060,7 @@ window.TRACES = [
     "i": 2,
     "kind": "budget",
     "name": "run ceiling",
-    "ms": 0.01,
+    "ms": 0.02,
     "attempt": 0,
     "detail": {
      "ceiling": 0.02
@@ -1061,7 +1070,7 @@ window.TRACES = [
     "i": 3,
     "kind": "route",
     "name": "draft_reply",
-    "ms": 0.03,
+    "ms": 0.07,
     "attempt": 0,
     "detail": {
      "confidence": 0.9,
@@ -1075,12 +1084,12 @@ window.TRACES = [
     "i": 4,
     "kind": "plan",
     "name": "draft_reply",
-    "ms": 0.04,
+    "ms": 0.09,
     "attempt": 0,
     "detail": {
      "args": {
       "tone": "plain",
-      "facts": {}
+      "order_id": "4471"
      }
     }
    },
@@ -1088,12 +1097,12 @@ window.TRACES = [
     "i": 5,
     "kind": "approval_request",
     "name": "draft_reply",
-    "ms": 0.05,
+    "ms": 0.1,
     "attempt": 0,
     "detail": {
      "args": {
       "tone": "plain",
-      "facts": {}
+      "order_id": "4471"
      },
      "cost": 0.006
     }
@@ -1102,7 +1111,7 @@ window.TRACES = [
     "i": 6,
     "kind": "approval_granted",
     "name": "draft_reply",
-    "ms": 0.05,
+    "ms": 0.1,
     "attempt": 0,
     "detail": {
      "approver": "yes"
@@ -1112,12 +1121,12 @@ window.TRACES = [
     "i": 7,
     "kind": "tool_call",
     "name": "draft_reply",
-    "ms": 0.05,
+    "ms": 0.11,
     "attempt": 1,
     "detail": {
      "args": {
       "tone": "plain",
-      "facts": {}
+      "order_id": "4471"
      }
     }
    },
@@ -1125,13 +1134,22 @@ window.TRACES = [
     "i": 8,
     "kind": "tool_result",
     "name": "draft_reply",
-    "ms": 0.06,
+    "ms": 0.12,
     "attempt": 1,
     "detail": {
      "result": {
+      "order": {
+       "order_id": "4471",
+       "customer": "Nithya R",
+       "status": "in transit",
+       "zone": "B",
+       "placed": "2026-11-18",
+       "eta": "2026-11-25",
+       "items": 2
+      },
       "tone": "plain",
-      "body": "Thanks for writing in \u2014 we will get back to you shortly.",
-      "chars": 56
+      "body": "Hello Nithya R, order 4471 is in transit and should reach you by 2026-11-25. If it has not arrived by then, reply to this message and we will chase it.",
+      "chars": 151
      }
     }
    },
@@ -1139,7 +1157,7 @@ window.TRACES = [
     "i": 9,
     "kind": "charge",
     "name": "draft_reply",
-    "ms": 0.06,
+    "ms": 0.13,
     "attempt": 0,
     "detail": {
      "cost": 0.006,
@@ -1151,7 +1169,7 @@ window.TRACES = [
     "i": 10,
     "kind": "judge",
     "name": "self-check",
-    "ms": 0.08,
+    "ms": 0.15,
     "attempt": 0,
     "detail": {
      "passed": true,
@@ -1162,14 +1180,14 @@ window.TRACES = [
     "i": 11,
     "kind": "answer",
     "name": "delivered",
-    "ms": 0.08,
+    "ms": 0.15,
     "attempt": 0,
     "detail": {
-     "chars": 56
+     "chars": 151
     }
    }
   ],
-  "total_ms": 0.15,
+  "total_ms": 0.24,
   "request": "Draft an apologetic reply about order 4471.",
   "ok": true,
   "route": "draft_reply",
@@ -1179,7 +1197,7 @@ window.TRACES = [
    "calls": 1,
    "left": 0.014
   },
-  "answer": "Thanks for writing in \u2014 we will get back to you shortly.",
+  "answer": "Hello Nithya R, order 4471 is in transit and should reach you by 2026-11-25. If it has not arrived by then, reply to this message and we will chase it.",
   "id": "approval-granted",
   "title": "A reply a human allows",
   "shows": [
@@ -1213,7 +1231,7 @@ window.TRACES = [
     "i": 3,
     "kind": "route",
     "name": "draft_reply",
-    "ms": 0.03,
+    "ms": 0.04,
     "attempt": 0,
     "detail": {
      "confidence": 0.9,
@@ -1227,12 +1245,12 @@ window.TRACES = [
     "i": 4,
     "kind": "plan",
     "name": "draft_reply",
-    "ms": 0.03,
+    "ms": 0.05,
     "attempt": 0,
     "detail": {
      "args": {
       "tone": "plain",
-      "facts": {}
+      "order_id": "4471"
      }
     }
    },
@@ -1240,12 +1258,12 @@ window.TRACES = [
     "i": 5,
     "kind": "approval_request",
     "name": "draft_reply",
-    "ms": 0.04,
+    "ms": 0.06,
     "attempt": 0,
     "detail": {
      "args": {
       "tone": "plain",
-      "facts": {}
+      "order_id": "4471"
      },
      "cost": 0.006
     }
@@ -1254,14 +1272,14 @@ window.TRACES = [
     "i": 6,
     "kind": "approval_denied",
     "name": "draft_reply",
-    "ms": 0.04,
+    "ms": 0.06,
     "attempt": 0,
     "detail": {
      "note": "no approver said yes; the tool was not called"
     }
    }
   ],
-  "total_ms": 0.08,
+  "total_ms": 0.1,
   "request": "Draft an apologetic reply about order 4471.",
   "ok": false,
   "route": "draft_reply",

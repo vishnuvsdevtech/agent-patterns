@@ -14,7 +14,7 @@
       "i": 2,
       "kind": "budget",
       "name": "run ceiling",
-      "ms": 0.01,
+      "ms": 0.02,
       "attempt": 0,
       "detail": {
         "ceiling": 0.02
@@ -24,7 +24,7 @@
       "i": 3,
       "kind": "route",
       "name": "shipping_batch",
-      "ms": 0.05,
+      "ms": 0.07,
       "attempt": 0,
       "detail": {
         "confidence": 0.9,
@@ -38,7 +38,7 @@
       "i": 4,
       "kind": "plan",
       "name": "8 calls",
-      "ms": 0.07,
+      "ms": 0.11,
       "attempt": 0,
       "detail": {
         "tools": [
@@ -57,7 +57,7 @@
       "i": 5,
       "kind": "tool_call",
       "name": "shipping_quote",
-      "ms": 0.08,
+      "ms": 0.12,
       "attempt": 1,
       "detail": {
         "args": {
@@ -70,7 +70,7 @@
       "i": 6,
       "kind": "tool_result",
       "name": "shipping_quote",
-      "ms": 0.1,
+      "ms": 0.14,
       "attempt": 1,
       "detail": {
         "result": {
@@ -86,7 +86,7 @@
       "i": 7,
       "kind": "charge",
       "name": "shipping_quote",
-      "ms": 0.1,
+      "ms": 0.15,
       "attempt": 0,
       "detail": {
         "cost": 0.003,
@@ -98,7 +98,7 @@
       "i": 8,
       "kind": "tool_call",
       "name": "shipping_quote",
-      "ms": 0.11,
+      "ms": 0.15,
       "attempt": 1,
       "detail": {
         "args": {
@@ -111,7 +111,7 @@
       "i": 9,
       "kind": "tool_result",
       "name": "shipping_quote",
-      "ms": 0.12,
+      "ms": 0.16,
       "attempt": 1,
       "detail": {
         "result": {
@@ -127,7 +127,7 @@
       "i": 10,
       "kind": "charge",
       "name": "shipping_quote",
-      "ms": 0.12,
+      "ms": 0.17,
       "attempt": 0,
       "detail": {
         "cost": 0.003,
@@ -139,7 +139,7 @@
       "i": 11,
       "kind": "tool_call",
       "name": "shipping_quote",
-      "ms": 0.13,
+      "ms": 0.17,
       "attempt": 1,
       "detail": {
         "args": {
@@ -152,7 +152,7 @@
       "i": 12,
       "kind": "tool_result",
       "name": "shipping_quote",
-      "ms": 0.13,
+      "ms": 0.18,
       "attempt": 1,
       "detail": {
         "result": {
@@ -168,7 +168,7 @@
       "i": 13,
       "kind": "charge",
       "name": "shipping_quote",
-      "ms": 0.14,
+      "ms": 0.18,
       "attempt": 0,
       "detail": {
         "cost": 0.003,
@@ -180,7 +180,7 @@
       "i": 14,
       "kind": "tool_call",
       "name": "shipping_quote",
-      "ms": 0.14,
+      "ms": 0.18,
       "attempt": 1,
       "detail": {
         "args": {
@@ -193,7 +193,7 @@
       "i": 15,
       "kind": "tool_result",
       "name": "shipping_quote",
-      "ms": 0.15,
+      "ms": 0.19,
       "attempt": 1,
       "detail": {
         "result": {
@@ -209,7 +209,7 @@
       "i": 16,
       "kind": "charge",
       "name": "shipping_quote",
-      "ms": 0.15,
+      "ms": 0.19,
       "attempt": 0,
       "detail": {
         "cost": 0.003,
@@ -221,7 +221,7 @@
       "i": 17,
       "kind": "tool_call",
       "name": "shipping_quote",
-      "ms": 0.15,
+      "ms": 0.2,
       "attempt": 1,
       "detail": {
         "args": {
@@ -234,7 +234,7 @@
       "i": 18,
       "kind": "tool_result",
       "name": "shipping_quote",
-      "ms": 0.16,
+      "ms": 0.2,
       "attempt": 1,
       "detail": {
         "result": {
@@ -250,7 +250,7 @@
       "i": 19,
       "kind": "charge",
       "name": "shipping_quote",
-      "ms": 0.16,
+      "ms": 0.21,
       "attempt": 0,
       "detail": {
         "cost": 0.003,
@@ -262,7 +262,7 @@
       "i": 20,
       "kind": "tool_call",
       "name": "shipping_quote",
-      "ms": 0.17,
+      "ms": 0.21,
       "attempt": 1,
       "detail": {
         "args": {
@@ -275,7 +275,7 @@
       "i": 21,
       "kind": "tool_result",
       "name": "shipping_quote",
-      "ms": 0.17,
+      "ms": 0.22,
       "attempt": 1,
       "detail": {
         "result": {
@@ -291,7 +291,7 @@
       "i": 22,
       "kind": "charge",
       "name": "shipping_quote",
-      "ms": 0.18,
+      "ms": 0.22,
       "attempt": 0,
       "detail": {
         "cost": 0.003,
@@ -303,7 +303,7 @@
       "i": 23,
       "kind": "budget_stop",
       "name": "shipping_quote",
-      "ms": 0.18,
+      "ms": 0.23,
       "attempt": 0,
       "detail": {
         "cost": 0.003,
@@ -314,7 +314,7 @@
       }
     }
   ],
-  "total_ms": 0.32,
+  "total_ms": 0.39,
   "request": "Quote 3 kg for zone A, zone B, zone C, zone A, zone B, zone C, zone A and zone B.",
   "ok": false,
   "route": "shipping_batch",

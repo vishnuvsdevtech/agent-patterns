@@ -14,7 +14,7 @@
       "i": 2,
       "kind": "budget",
       "name": "run ceiling",
-      "ms": 0.0,
+      "ms": 0.01,
       "attempt": 0,
       "detail": {
         "ceiling": 0.02
@@ -37,7 +37,7 @@
       "i": 4,
       "kind": "plan",
       "name": "shipping_quote",
-      "ms": 0.09,
+      "ms": 0.11,
       "attempt": 0,
       "detail": {
         "args": {
@@ -50,7 +50,7 @@
       "i": 5,
       "kind": "tool_call",
       "name": "shipping_quote",
-      "ms": 0.09,
+      "ms": 0.12,
       "attempt": 1,
       "detail": {
         "args": {
@@ -63,7 +63,7 @@
       "i": 6,
       "kind": "tool_error",
       "name": "shipping_quote",
-      "ms": 0.1,
+      "ms": 0.12,
       "attempt": 1,
       "detail": {
         "error": "shipping_quote: upstream returned 503 (attempt 1)"
@@ -73,7 +73,7 @@
       "i": 7,
       "kind": "retry",
       "name": "shipping_quote",
-      "ms": 0.1,
+      "ms": 0.12,
       "attempt": 1,
       "detail": {
         "in_ms": 50,
@@ -84,7 +84,7 @@
       "i": 8,
       "kind": "tool_call",
       "name": "shipping_quote",
-      "ms": 54.14,
+      "ms": 51.58,
       "attempt": 2,
       "detail": {
         "args": {
@@ -97,7 +97,7 @@
       "i": 9,
       "kind": "tool_error",
       "name": "shipping_quote",
-      "ms": 54.2,
+      "ms": 51.59,
       "attempt": 2,
       "detail": {
         "error": "shipping_quote: upstream returned 503 (attempt 2)"
@@ -107,7 +107,7 @@
       "i": 10,
       "kind": "retry",
       "name": "shipping_quote",
-      "ms": 54.21,
+      "ms": 51.6,
       "attempt": 2,
       "detail": {
         "in_ms": 100,
@@ -118,7 +118,7 @@
       "i": 11,
       "kind": "tool_call",
       "name": "shipping_quote",
-      "ms": 156.72,
+      "ms": 155.21,
       "attempt": 3,
       "detail": {
         "args": {
@@ -131,7 +131,7 @@
       "i": 12,
       "kind": "tool_result",
       "name": "shipping_quote",
-      "ms": 156.83,
+      "ms": 155.3,
       "attempt": 3,
       "detail": {
         "result": {
@@ -147,7 +147,7 @@
       "i": 13,
       "kind": "charge",
       "name": "shipping_quote",
-      "ms": 156.84,
+      "ms": 155.3,
       "attempt": 0,
       "detail": {
         "cost": 0.003,
@@ -159,7 +159,7 @@
       "i": 14,
       "kind": "judge",
       "name": "self-check",
-      "ms": 156.91,
+      "ms": 155.37,
       "attempt": 0,
       "detail": {
         "passed": true,
@@ -170,14 +170,14 @@
       "i": 15,
       "kind": "answer",
       "name": "delivered",
-      "ms": 156.92,
+      "ms": 155.37,
       "attempt": 0,
       "detail": {
         "chars": 58
       }
     }
   ],
-  "total_ms": 157.05,
+  "total_ms": 155.5,
   "request": "What does it cost to ship 7 kg to zone C?",
   "ok": true,
   "route": "shipping_quote",

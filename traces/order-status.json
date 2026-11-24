@@ -24,7 +24,7 @@
       "i": 3,
       "kind": "route",
       "name": "order_status",
-      "ms": 0.2,
+      "ms": 0.21,
       "attempt": 0,
       "detail": {
         "confidence": 0.9,
@@ -37,7 +37,7 @@
       "i": 4,
       "kind": "plan",
       "name": "lookup_order",
-      "ms": 0.22,
+      "ms": 0.24,
       "attempt": 0,
       "detail": {
         "args": {
@@ -49,7 +49,7 @@
       "i": 5,
       "kind": "tool_call",
       "name": "lookup_order",
-      "ms": 0.23,
+      "ms": 0.24,
       "attempt": 1,
       "detail": {
         "args": {
@@ -61,7 +61,7 @@
       "i": 6,
       "kind": "tool_result",
       "name": "lookup_order",
-      "ms": 0.23,
+      "ms": 0.25,
       "attempt": 1,
       "detail": {
         "result": {
@@ -79,7 +79,7 @@
       "i": 7,
       "kind": "charge",
       "name": "lookup_order",
-      "ms": 0.23,
+      "ms": 0.25,
       "attempt": 0,
       "detail": {
         "cost": 0.004,
@@ -91,7 +91,7 @@
       "i": 8,
       "kind": "judge",
       "name": "self-check",
-      "ms": 0.28,
+      "ms": 0.3,
       "attempt": 0,
       "detail": {
         "passed": true,
@@ -102,14 +102,14 @@
       "i": 9,
       "kind": "answer",
       "name": "delivered",
-      "ms": 0.28,
+      "ms": 0.3,
       "attempt": 0,
       "detail": {
         "chars": 89
       }
     }
   ],
-  "total_ms": 0.31,
+  "total_ms": 0.33,
   "request": "Where is order 4471?",
   "ok": true,
   "route": "order_status",

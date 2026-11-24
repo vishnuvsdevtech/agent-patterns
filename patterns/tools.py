@@ -63,24 +63,18 @@ def shipping_quote(zone: str, kg: float) -> dict:
             "total_inr": total, "breakdown": f"{min(kg,5):g} kg x {RATES_PER_ZONE[zone]} + {max(0.0, kg-5):g} kg x {RATES_PER_ZONE[zone]-PER_KG_OVER_5}"}
 
 
-def draft_reply(tone: str, facts: dict) -> dict:
-    """Fill a reply template. No model needed for a fixed shape."""
+def draft_reply(order_id: str, tone: str = "plain") -> dict:
+    """Write a reply about one real order, using that order's own facts."""
     _maybe_fail("draft_reply")
-    tone = (tone or "plain").lower()
-    o = facts.get("order") or {}
-    price = facts.get("quote") or {}
-    if o:
-        body = (f"Hello {o.get('customer','there')}, order {o.get('order_id')} is "
-                f"{o.get('status')} and should reach you by {o.get('eta')}. "
-                f"If it has not arrived by then, reply to this message and we will chase it.")
-    elif price:
-        body = (f"Shipping to zone {price['zone']} for {price['kg']:g} kg comes to "
-                f"Rs {price['total_inr']:.0f}. That is {price['breakdown']}.")
-    else:
-        body = "Thanks for writing in — we will get back to you shortly."
-    if tone == "apologetic":
+    order = lookup_order(order_id)
+    body = (f"Hello {order['customer']}, order {order['order_id']} is {order['status']} "
+            f"and should reach you by {order['eta']}. If it has not arrived by then, "
+            f"reply to this message and we will chase it.")
+    if (tone or "plain").lower() == "apologetic":
         body = "Sorry for the trouble. " + body
-    return {"tone": tone, "body": body, "chars": len(body)}
+    # the facts travel back with the draft: the judge needs them to check that the
+    # answer uses what was looked up rather than inventing a date
+    return {"order": order, "tone": tone, "body": body, "chars": len(body)}
 
 
 TOOLS = {
