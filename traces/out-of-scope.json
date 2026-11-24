@@ -12,9 +12,19 @@
     },
     {
       "i": 2,
+      "kind": "budget",
+      "name": "run ceiling",
+      "ms": 0.01,
+      "attempt": 0,
+      "detail": {
+        "ceiling": 0.02
+      }
+    },
+    {
+      "i": 3,
       "kind": "route",
       "name": "out_of_scope",
-      "ms": 0.04,
+      "ms": 0.03,
       "attempt": 0,
       "detail": {
         "confidence": 0.0,
@@ -24,25 +34,31 @@
       }
     },
     {
-      "i": 3,
+      "i": 4,
       "kind": "refuse",
       "name": "out of scope",
-      "ms": 0.05,
+      "ms": 0.03,
       "attempt": 0,
       "detail": {
         "text": "This harness only covers order status, shipping quotes and reply drafts."
       }
     }
   ],
-  "total_ms": 0.08,
+  "total_ms": 0.06,
   "request": "What is the weather in Kochi today?",
   "ok": false,
   "route": "out_of_scope",
+  "budget": {
+    "ceiling": 0.02,
+    "spent": 0.0,
+    "calls": 0,
+    "left": 0.02
+  },
   "answer": "I can check order status, quote shipping, or draft a reply \u2014 that request is outside what I have tools for.",
   "id": "out-of-scope",
   "title": "Something with no tool",
   "shows": [
     "routing refusal"
   ],
-  "attempt_count": 0
+  "step_count": 4
 }

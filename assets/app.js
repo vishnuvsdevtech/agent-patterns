@@ -6,9 +6,11 @@
   let cur = 0, replayTimers = [];
 
   const PRETTY = {
-    route: 'route', plan: 'plan', tool_call: 'call', tool_result: 'result',
-    tool_error: 'error', retry: 'retry', judge: 'judge', revise: 'revise',
-    answer: 'answer', refuse: 'refuse', fail: 'fail', request: 'request',
+    request: 'request', budget: 'budget', route: 'route', plan: 'plan',
+    approval_request: 'approve?', approval_granted: 'approved', approval_denied: 'denied',
+    tool_call: 'call', tool_result: 'result', tool_error: 'error', retry: 'retry',
+    charge: 'charge', budget_stop: 'stop', judge: 'judge', revise: 'revise',
+    answer: 'answer', refuse: 'refuse', fail: 'fail',
   };
 
   const CLAIMS = {
@@ -17,6 +19,9 @@
     'draft-reply': ['Chaining after a routing fix', 'Asking for a draft used to route to order status because the word "parcel" came first. The trace is what exposed it; scoring the verb fixed it.'],
     'judge-revise': ['A judge that disagrees', 'The first draft promises a delivery date it cannot know. The judge catches the promise, the revision drops that sentence, and a second judge pass confirms.'],
     'out-of-scope': ['Refusing beats guessing', 'No tool covers the weather, so it says so. This is the run that makes the other four believable.'],
+    'spend-guard': ['A ceiling that actually stops', 'Eight quotes against a 0.02 budget: six calls are charged, then the run stops before the seventh rather than spending past the limit.'],
+    'approval-granted': ['A human says yes', 'Drafting a customer reply is flagged requires_approval. The run pauses, records the request, and calls the tool only after the approval.'],
+    'approval-denied': ['A human says no', 'The same reply, refused: no tool call, nothing charged, and the answer says so plainly.'],
   };
 
   function esc(s) {
@@ -25,6 +30,15 @@
 
   function pretty(detail) {
     return esc(JSON.stringify(detail, null, 2));
+  }
+
+  function summarise(detail) {
+    if (!detail) return '';
+    if (detail.ceiling != null && detail.spent == null) return 'allows ' + detail.ceiling;
+    if (detail.spent != null && detail.cost != null) return detail.cost + ' → ' + detail.spent;
+    if (detail.error) return String(detail.error).slice(0, 48);
+    if (detail.note) return String(detail.note).slice(0, 48);
+    return '';
   }
 
   function drawRuns() {
@@ -58,7 +72,9 @@
     $('#runMeta').textContent = `${t.id} · ${t.steps.length} steps · ${Math.round(t.total_ms)} ms`;
     $('#runTitle').textContent = t.title;
     $('#ask').innerHTML = `<span>request</span>${esc(t.request)}`;
+    const b = t.budget || {};
     $('#verdict').innerHTML = `
+      <span>spend <b>${b.spent != null ? b.spent.toFixed(3) : '—'} / ${b.ceiling != null ? b.ceiling.toFixed(3) : '—'}</b></span>
       <span>route <b>${esc(t.route || '—')}</b></span>
       <span>tool calls <b>${calls}</b></span>
       <span>retries <b>${retries}</b></span>
@@ -72,7 +88,7 @@
         <div class="step-row">
           <span class="i">${String(s.i).padStart(2, '0')}</span>
           <span class="kind ${s.kind}">${PRETTY[s.kind] || s.kind}</span>
-          <span class="name">${esc(name)}${sub}</span>
+          <span class="name">${esc(name)}${sub}${summarise(s.detail) ? ' <em>' + esc(summarise(s.detail)) + '</em>' : ''}</span>
           <span class="ms">${s.ms < 1 ? '&lt;1' : Math.round(s.ms)} ms</span>
         </div>
         <div class="detail"><pre>${pretty(s.detail)}</pre></div>

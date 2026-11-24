@@ -12,6 +12,16 @@
     },
     {
       "i": 2,
+      "kind": "budget",
+      "name": "run ceiling",
+      "ms": 0.0,
+      "attempt": 0,
+      "detail": {
+        "ceiling": 0.02
+      }
+    },
+    {
+      "i": 3,
       "kind": "route",
       "name": "shipping_quote",
       "ms": 0.02,
@@ -24,10 +34,10 @@
       }
     },
     {
-      "i": 3,
+      "i": 4,
       "kind": "plan",
       "name": "shipping_quote",
-      "ms": 0.1,
+      "ms": 0.09,
       "attempt": 0,
       "detail": {
         "args": {
@@ -37,10 +47,10 @@
       }
     },
     {
-      "i": 4,
+      "i": 5,
       "kind": "tool_call",
       "name": "shipping_quote",
-      "ms": 0.1,
+      "ms": 0.09,
       "attempt": 1,
       "detail": {
         "args": {
@@ -50,20 +60,20 @@
       }
     },
     {
-      "i": 5,
+      "i": 6,
       "kind": "tool_error",
       "name": "shipping_quote",
-      "ms": 0.11,
+      "ms": 0.1,
       "attempt": 1,
       "detail": {
         "error": "shipping_quote: upstream returned 503 (attempt 1)"
       }
     },
     {
-      "i": 6,
+      "i": 7,
       "kind": "retry",
       "name": "shipping_quote",
-      "ms": 0.11,
+      "ms": 0.1,
       "attempt": 1,
       "detail": {
         "in_ms": 50,
@@ -71,10 +81,10 @@
       }
     },
     {
-      "i": 7,
+      "i": 8,
       "kind": "tool_call",
       "name": "shipping_quote",
-      "ms": 51.44,
+      "ms": 54.14,
       "attempt": 2,
       "detail": {
         "args": {
@@ -84,20 +94,20 @@
       }
     },
     {
-      "i": 8,
+      "i": 9,
       "kind": "tool_error",
       "name": "shipping_quote",
-      "ms": 51.46,
+      "ms": 54.2,
       "attempt": 2,
       "detail": {
         "error": "shipping_quote: upstream returned 503 (attempt 2)"
       }
     },
     {
-      "i": 9,
+      "i": 10,
       "kind": "retry",
       "name": "shipping_quote",
-      "ms": 51.46,
+      "ms": 54.21,
       "attempt": 2,
       "detail": {
         "in_ms": 100,
@@ -105,10 +115,10 @@
       }
     },
     {
-      "i": 10,
+      "i": 11,
       "kind": "tool_call",
       "name": "shipping_quote",
-      "ms": 156.27,
+      "ms": 156.72,
       "attempt": 3,
       "detail": {
         "args": {
@@ -118,10 +128,10 @@
       }
     },
     {
-      "i": 11,
+      "i": 12,
       "kind": "tool_result",
       "name": "shipping_quote",
-      "ms": 156.36,
+      "ms": 156.83,
       "attempt": 3,
       "detail": {
         "result": {
@@ -134,10 +144,22 @@
       }
     },
     {
-      "i": 12,
+      "i": 13,
+      "kind": "charge",
+      "name": "shipping_quote",
+      "ms": 156.84,
+      "attempt": 0,
+      "detail": {
+        "cost": 0.003,
+        "spent": 0.003,
+        "ceiling": 0.02
+      }
+    },
+    {
+      "i": 14,
       "kind": "judge",
       "name": "self-check",
-      "ms": 156.43,
+      "ms": 156.91,
       "attempt": 0,
       "detail": {
         "passed": true,
@@ -145,20 +167,26 @@
       }
     },
     {
-      "i": 13,
+      "i": 15,
       "kind": "answer",
       "name": "delivered",
-      "ms": 156.44,
+      "ms": 156.92,
       "attempt": 0,
       "detail": {
         "chars": 58
       }
     }
   ],
-  "total_ms": 156.62,
+  "total_ms": 157.05,
   "request": "What does it cost to ship 7 kg to zone C?",
   "ok": true,
   "route": "shipping_quote",
+  "budget": {
+    "ceiling": 0.02,
+    "spent": 0.003,
+    "calls": 1,
+    "left": 0.017
+  },
   "answer": "Shipping 7 kg to zone C is Rs 606 (5 kg x 90 + 2 kg x 78).",
   "id": "shipping-retry",
   "title": "Shipping that fails twice",
@@ -166,5 +194,5 @@
     "tool use",
     "retry with backoff"
   ],
-  "attempt_count": 3
+  "step_count": 15
 }

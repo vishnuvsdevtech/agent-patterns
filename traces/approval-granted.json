@@ -1,0 +1,152 @@
+{
+  "steps": [
+    {
+      "i": 1,
+      "kind": "request",
+      "name": "customer message",
+      "ms": 0.0,
+      "attempt": 0,
+      "detail": {
+        "text": "Draft an apologetic reply about order 4471."
+      }
+    },
+    {
+      "i": 2,
+      "kind": "budget",
+      "name": "run ceiling",
+      "ms": 0.01,
+      "attempt": 0,
+      "detail": {
+        "ceiling": 0.02
+      }
+    },
+    {
+      "i": 3,
+      "kind": "route",
+      "name": "draft_reply",
+      "ms": 0.03,
+      "attempt": 0,
+      "detail": {
+        "confidence": 0.9,
+        "why": [
+          "draft_reply: asks for a written reply (weight 3)",
+          "order_status: mentions an order (weight 2)"
+        ]
+      }
+    },
+    {
+      "i": 4,
+      "kind": "plan",
+      "name": "draft_reply",
+      "ms": 0.04,
+      "attempt": 0,
+      "detail": {
+        "args": {
+          "tone": "plain",
+          "facts": {}
+        }
+      }
+    },
+    {
+      "i": 5,
+      "kind": "approval_request",
+      "name": "draft_reply",
+      "ms": 0.05,
+      "attempt": 0,
+      "detail": {
+        "args": {
+          "tone": "plain",
+          "facts": {}
+        },
+        "cost": 0.006
+      }
+    },
+    {
+      "i": 6,
+      "kind": "approval_granted",
+      "name": "draft_reply",
+      "ms": 0.05,
+      "attempt": 0,
+      "detail": {
+        "approver": "yes"
+      }
+    },
+    {
+      "i": 7,
+      "kind": "tool_call",
+      "name": "draft_reply",
+      "ms": 0.05,
+      "attempt": 1,
+      "detail": {
+        "args": {
+          "tone": "plain",
+          "facts": {}
+        }
+      }
+    },
+    {
+      "i": 8,
+      "kind": "tool_result",
+      "name": "draft_reply",
+      "ms": 0.06,
+      "attempt": 1,
+      "detail": {
+        "result": {
+          "tone": "plain",
+          "body": "Thanks for writing in \u2014 we will get back to you shortly.",
+          "chars": 56
+        }
+      }
+    },
+    {
+      "i": 9,
+      "kind": "charge",
+      "name": "draft_reply",
+      "ms": 0.06,
+      "attempt": 0,
+      "detail": {
+        "cost": 0.006,
+        "spent": 0.006,
+        "ceiling": 0.02
+      }
+    },
+    {
+      "i": 10,
+      "kind": "judge",
+      "name": "self-check",
+      "ms": 0.08,
+      "attempt": 0,
+      "detail": {
+        "passed": true,
+        "problems": []
+      }
+    },
+    {
+      "i": 11,
+      "kind": "answer",
+      "name": "delivered",
+      "ms": 0.08,
+      "attempt": 0,
+      "detail": {
+        "chars": 56
+      }
+    }
+  ],
+  "total_ms": 0.15,
+  "request": "Draft an apologetic reply about order 4471.",
+  "ok": true,
+  "route": "draft_reply",
+  "budget": {
+    "ceiling": 0.02,
+    "spent": 0.006,
+    "calls": 1,
+    "left": 0.014
+  },
+  "answer": "Thanks for writing in \u2014 we will get back to you shortly.",
+  "id": "approval-granted",
+  "title": "A reply a human allows",
+  "shows": [
+    "approval gate, granted"
+  ],
+  "step_count": 11
+}

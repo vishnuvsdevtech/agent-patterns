@@ -39,6 +39,10 @@ class RuleBrain:
             "asks about shipping or weight")
         hit("draft_reply", 3, r"\bdraft\b|\bwrite\b|\bcompose\b|reply|email|message them",
             "asks for a written reply")
+        # several zones in one ask: a batch, which is what makes a spend ceiling
+        # testable without inventing a fake loop
+        if len(re.findall(r"zone\s*[abc]", q)) >= 3:
+            scores.append((4, "shipping_batch", "asks for several shipping quotes at once"))
 
         if not scores:
             return {"route": "out_of_scope", "confidence": 0.0,
@@ -53,6 +57,12 @@ class RuleBrain:
 
     def plan(self, request: str, route: str) -> dict:
         q = request.lower()
+        if route == "shipping_batch":
+            zones = [z.upper() for z in re.findall(r"zone\s*([abc])", q)]
+            kgs = [float(x) for x in re.findall(r"(\d+(?:\.\d+)?)\s*kg", q)] or [3.0]
+            return {"calls": [{"tool": "shipping_quote",
+                               "args": {"zone": z, "kg": kgs[i % len(kgs)]}}
+                              for i, z in enumerate(zones)]}
         if route == "order_status":
             m = re.search(r"\b(\d{3,6})\b", q)
             return {"tool": "lookup_order", "args": {"order_id": m.group(1) if m else "4471"}}

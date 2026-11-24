@@ -1,0 +1,92 @@
+{
+  "steps": [
+    {
+      "i": 1,
+      "kind": "request",
+      "name": "customer message",
+      "ms": 0.0,
+      "attempt": 0,
+      "detail": {
+        "text": "Draft an apologetic reply about order 4471."
+      }
+    },
+    {
+      "i": 2,
+      "kind": "budget",
+      "name": "run ceiling",
+      "ms": 0.01,
+      "attempt": 0,
+      "detail": {
+        "ceiling": 0.02
+      }
+    },
+    {
+      "i": 3,
+      "kind": "route",
+      "name": "draft_reply",
+      "ms": 0.03,
+      "attempt": 0,
+      "detail": {
+        "confidence": 0.9,
+        "why": [
+          "draft_reply: asks for a written reply (weight 3)",
+          "order_status: mentions an order (weight 2)"
+        ]
+      }
+    },
+    {
+      "i": 4,
+      "kind": "plan",
+      "name": "draft_reply",
+      "ms": 0.03,
+      "attempt": 0,
+      "detail": {
+        "args": {
+          "tone": "plain",
+          "facts": {}
+        }
+      }
+    },
+    {
+      "i": 5,
+      "kind": "approval_request",
+      "name": "draft_reply",
+      "ms": 0.04,
+      "attempt": 0,
+      "detail": {
+        "args": {
+          "tone": "plain",
+          "facts": {}
+        },
+        "cost": 0.006
+      }
+    },
+    {
+      "i": 6,
+      "kind": "approval_denied",
+      "name": "draft_reply",
+      "ms": 0.04,
+      "attempt": 0,
+      "detail": {
+        "note": "no approver said yes; the tool was not called"
+      }
+    }
+  ],
+  "total_ms": 0.08,
+  "request": "Draft an apologetic reply about order 4471.",
+  "ok": false,
+  "route": "draft_reply",
+  "budget": {
+    "ceiling": 0.02,
+    "spent": 0.0,
+    "calls": 0,
+    "left": 0.02
+  },
+  "answer": "That needs a person to approve it before I call draft_reply. Nothing was written or sent.",
+  "id": "approval-denied",
+  "title": "The same reply, denied",
+  "shows": [
+    "approval gate, denied"
+  ],
+  "step_count": 6
+}

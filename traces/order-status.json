@@ -12,9 +12,19 @@
     },
     {
       "i": 2,
+      "kind": "budget",
+      "name": "run ceiling",
+      "ms": 0.01,
+      "attempt": 0,
+      "detail": {
+        "ceiling": 0.02
+      }
+    },
+    {
+      "i": 3,
       "kind": "route",
       "name": "order_status",
-      "ms": 0.22,
+      "ms": 0.2,
       "attempt": 0,
       "detail": {
         "confidence": 0.9,
@@ -24,10 +34,10 @@
       }
     },
     {
-      "i": 3,
+      "i": 4,
       "kind": "plan",
       "name": "lookup_order",
-      "ms": 0.26,
+      "ms": 0.22,
       "attempt": 0,
       "detail": {
         "args": {
@@ -36,10 +46,10 @@
       }
     },
     {
-      "i": 4,
+      "i": 5,
       "kind": "tool_call",
       "name": "lookup_order",
-      "ms": 0.26,
+      "ms": 0.23,
       "attempt": 1,
       "detail": {
         "args": {
@@ -48,10 +58,10 @@
       }
     },
     {
-      "i": 5,
+      "i": 6,
       "kind": "tool_result",
       "name": "lookup_order",
-      "ms": 0.26,
+      "ms": 0.23,
       "attempt": 1,
       "detail": {
         "result": {
@@ -66,10 +76,22 @@
       }
     },
     {
-      "i": 6,
+      "i": 7,
+      "kind": "charge",
+      "name": "lookup_order",
+      "ms": 0.23,
+      "attempt": 0,
+      "detail": {
+        "cost": 0.004,
+        "spent": 0.004,
+        "ceiling": 0.02
+      }
+    },
+    {
+      "i": 8,
       "kind": "judge",
       "name": "self-check",
-      "ms": 0.32,
+      "ms": 0.28,
       "attempt": 0,
       "detail": {
         "passed": true,
@@ -77,20 +99,26 @@
       }
     },
     {
-      "i": 7,
+      "i": 9,
       "kind": "answer",
       "name": "delivered",
-      "ms": 0.32,
+      "ms": 0.28,
       "attempt": 0,
       "detail": {
         "chars": 89
       }
     }
   ],
-  "total_ms": 0.36,
+  "total_ms": 0.31,
   "request": "Where is order 4471?",
   "ok": true,
   "route": "order_status",
+  "budget": {
+    "ceiling": 0.02,
+    "spent": 0.004,
+    "calls": 1,
+    "left": 0.016
+  },
   "answer": "Order 4471 for Nithya R is in transit. Placed 2026-11-18, expected 2026-11-25, 2 item(s).",
   "id": "order-status",
   "title": "Where is my order?",
@@ -98,5 +126,5 @@
     "routing",
     "tool use"
   ],
-  "attempt_count": 1
+  "step_count": 9
 }

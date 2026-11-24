@@ -12,9 +12,19 @@
     },
     {
       "i": 2,
+      "kind": "budget",
+      "name": "run ceiling",
+      "ms": 0.01,
+      "attempt": 0,
+      "detail": {
+        "ceiling": 0.02
+      }
+    },
+    {
+      "i": 3,
       "kind": "route",
       "name": "order_status",
-      "ms": 0.04,
+      "ms": 0.03,
       "attempt": 0,
       "detail": {
         "confidence": 0.9,
@@ -24,10 +34,10 @@
       }
     },
     {
-      "i": 3,
+      "i": 4,
       "kind": "plan",
       "name": "lookup_order",
-      "ms": 0.06,
+      "ms": 0.04,
       "attempt": 0,
       "detail": {
         "args": {
@@ -36,10 +46,10 @@
       }
     },
     {
-      "i": 4,
+      "i": 5,
       "kind": "tool_call",
       "name": "lookup_order",
-      "ms": 0.06,
+      "ms": 0.05,
       "attempt": 1,
       "detail": {
         "args": {
@@ -48,10 +58,10 @@
       }
     },
     {
-      "i": 5,
+      "i": 6,
       "kind": "tool_result",
       "name": "lookup_order",
-      "ms": 0.07,
+      "ms": 0.06,
       "attempt": 1,
       "detail": {
         "result": {
@@ -66,10 +76,22 @@
       }
     },
     {
-      "i": 6,
+      "i": 7,
+      "kind": "charge",
+      "name": "lookup_order",
+      "ms": 0.06,
+      "attempt": 0,
+      "detail": {
+        "cost": 0.004,
+        "spent": 0.004,
+        "ceiling": 0.02
+      }
+    },
+    {
+      "i": 8,
       "kind": "judge",
       "name": "self-check",
-      "ms": 0.12,
+      "ms": 0.08,
       "attempt": 0,
       "detail": {
         "passed": false,
@@ -79,10 +101,10 @@
       }
     },
     {
-      "i": 7,
+      "i": 9,
       "kind": "revise",
       "name": "answer rewritten",
-      "ms": 0.6,
+      "ms": 0.36,
       "attempt": 0,
       "detail": {
         "before": "Order 5102 for Anoop S is delivered. Placed 2026-11-11, expected 2026-11-16, 1 item(s). We guarantee delivery by Friday.",
@@ -93,10 +115,10 @@
       }
     },
     {
-      "i": 8,
+      "i": 10,
       "kind": "judge",
       "name": "self-check after revision",
-      "ms": 0.62,
+      "ms": 0.37,
       "attempt": 0,
       "detail": {
         "passed": true,
@@ -104,20 +126,26 @@
       }
     },
     {
-      "i": 9,
+      "i": 11,
       "kind": "answer",
       "name": "delivered",
-      "ms": 0.63,
+      "ms": 0.38,
       "attempt": 0,
       "detail": {
         "chars": 87
       }
     }
   ],
-  "total_ms": 0.72,
+  "total_ms": 0.45,
   "request": "Where is order 5102?",
   "ok": true,
   "route": "order_status",
+  "budget": {
+    "ceiling": 0.02,
+    "spent": 0.004,
+    "calls": 1,
+    "left": 0.016
+  },
   "answer": "Order 5102 for Anoop S is delivered. Placed 2026-11-11, expected 2026-11-16, 1 item(s).",
   "id": "judge-revise",
   "title": "A draft that overpromises",
@@ -125,5 +153,5 @@
     "evaluator",
     "revision"
   ],
-  "attempt_count": 1
+  "step_count": 11
 }

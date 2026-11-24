@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Agent harness — five traces, one recorded failure</title>
+<title>Agent harness — eight runs, the guards included</title>
 <meta name="description" content="A small agent harness with routing, tool calls, retries and a judge, replayed step by step from real recorded runs. Includes the two failures.">
 <meta name="theme-color" content="#0b0f0e">
 <link rel="canonical" href="https://vishnuvsdevtech.github.io/agent-patterns/">
@@ -20,11 +20,12 @@
 
 <main>
   <section class="hero">
-    <p class="eyebrow mono">routing · tool use · retries · a judge that disagrees</p>
+    <p class="eyebrow mono">routing · tool use · retries · a spend ceiling · an approval gate</p>
     <h1>The trace is the <em>deliverable</em></h1>
-    <p class="lede">Five runs of one small harness, replayed step by step from the JSON it wrote while running.
-    Two of them fail on purpose: a tool that returns 503 twice, and a draft that overpromises. Everything below is
-    recorded output — nothing is illustrated.</p>
+    <p class="lede">Eight runs of one small harness, replayed step by step from the JSON it wrote while running.
+    Several fail on purpose, because the guards are the interesting part: a tool that returns 503 twice, a draft
+    that overpromises, a spend ceiling that stops a run mid-answer, and a customer reply that waits for a human.
+    Everything below is recorded output — nothing is illustrated.</p>
   </section>
 
   <div class="cols">
@@ -67,7 +68,7 @@
   <span>python3 cli.py · python3 selftest.py</span>
 </footer>
 
-<script src="assets/traces.js"></script>
+<script src="assets/traces.js?v=2"></script>
 <script src="assets/app.js"></script>
 </body>
 </html>

@@ -9,7 +9,13 @@
       "routing",
       "tool use"
     ],
-    "total_ms": 0.36
+    "total_ms": 0.31,
+    "budget": {
+      "ceiling": 0.02,
+      "spent": 0.004,
+      "calls": 1,
+      "left": 0.016
+    }
   },
   {
     "id": "shipping-retry",
@@ -21,7 +27,13 @@
       "tool use",
       "retry with backoff"
     ],
-    "total_ms": 156.62
+    "total_ms": 157.05,
+    "budget": {
+      "ceiling": 0.02,
+      "spent": 0.003,
+      "calls": 1,
+      "left": 0.017
+    }
   },
   {
     "id": "draft-reply",
@@ -33,7 +45,13 @@
       "routing",
       "chaining: fetch facts, then write"
     ],
-    "total_ms": 0.56
+    "total_ms": 0.37,
+    "budget": {
+      "ceiling": 0.02,
+      "spent": 0.006,
+      "calls": 1,
+      "left": 0.014
+    }
   },
   {
     "id": "judge-revise",
@@ -45,7 +63,13 @@
       "evaluator",
       "revision"
     ],
-    "total_ms": 0.72
+    "total_ms": 0.45,
+    "budget": {
+      "ceiling": 0.02,
+      "spent": 0.004,
+      "calls": 1,
+      "left": 0.016
+    }
   },
   {
     "id": "out-of-scope",
@@ -56,6 +80,63 @@
     "shows": [
       "routing refusal"
     ],
-    "total_ms": 0.08
+    "total_ms": 0.06,
+    "budget": {
+      "ceiling": 0.02,
+      "spent": 0.0,
+      "calls": 0,
+      "left": 0.02
+    }
+  },
+  {
+    "id": "spend-guard",
+    "title": "Eight quotes, one ceiling",
+    "request": "Quote 3 kg for zone A, zone B, zone C, zone A, zone B, zone C, zone A and zone B.",
+    "route": "shipping_batch",
+    "ok": false,
+    "shows": [
+      "spend guard"
+    ],
+    "total_ms": 0.32,
+    "budget": {
+      "ceiling": 0.02,
+      "spent": 0.018,
+      "calls": 6,
+      "left": 0.002
+    }
+  },
+  {
+    "id": "approval-granted",
+    "title": "A reply a human allows",
+    "request": "Draft an apologetic reply about order 4471.",
+    "route": "draft_reply",
+    "ok": true,
+    "shows": [
+      "approval gate, granted"
+    ],
+    "total_ms": 0.15,
+    "budget": {
+      "ceiling": 0.02,
+      "spent": 0.006,
+      "calls": 1,
+      "left": 0.014
+    }
+  },
+  {
+    "id": "approval-denied",
+    "title": "The same reply, denied",
+    "request": "Draft an apologetic reply about order 4471.",
+    "route": "draft_reply",
+    "ok": false,
+    "shows": [
+      "approval gate, denied"
+    ],
+    "total_ms": 0.08,
+    "budget": {
+      "ceiling": 0.02,
+      "spent": 0.0,
+      "calls": 0,
+      "left": 0.02
+    }
   }
 ]

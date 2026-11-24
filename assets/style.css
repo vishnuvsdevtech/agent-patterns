@@ -68,6 +68,10 @@ h2{margin:0;font-size:17px;letter-spacing:-.01em;font-weight:600}
 .kind.tool_error,.kind.fail{color:var(--red);border-color:color-mix(in srgb,var(--red) 45%,transparent)}
 .kind.retry,.kind.revise{color:var(--amber);border-color:color-mix(in srgb,var(--amber) 45%,transparent)}
 .kind.judge{color:var(--violet);border-color:color-mix(in srgb,var(--violet) 45%,transparent)}
+.kind.approval_request{color:var(--amber);border-color:color-mix(in srgb,var(--amber) 45%,transparent)}
+.kind.approval_granted{color:var(--acc);border-color:color-mix(in srgb,var(--acc) 45%,transparent)}
+.kind.approval_denied,.kind.budget_stop{color:var(--red);border-color:color-mix(in srgb,var(--red) 45%,transparent)}
+.kind.charge,.kind.budget{color:var(--muted);border-color:var(--line2)}
 .name{font:12.5px var(--mono);color:var(--ink);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .name em{font-style:normal;color:var(--muted);font-size:10.5px}
 .ms{font:9.5px var(--mono);color:var(--muted);text-align:right}

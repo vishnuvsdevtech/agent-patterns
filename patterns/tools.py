@@ -95,6 +95,8 @@ TOOLS = {
         "args": {"zone": "A|B|C", "kg": "number"},
     },
     "draft_reply": {
+        # sending something to a customer is not a decision the agent gets to make
+        "requires_approval": True,
         "fn": draft_reply,
         "purpose": "write a customer reply from facts already gathered",
         "args": {"tone": "string", "facts": "object"},

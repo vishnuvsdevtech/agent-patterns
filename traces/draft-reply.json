@@ -12,9 +12,19 @@
     },
     {
       "i": 2,
+      "kind": "budget",
+      "name": "run ceiling",
+      "ms": 0.01,
+      "attempt": 0,
+      "detail": {
+        "ceiling": 0.02
+      }
+    },
+    {
+      "i": 3,
       "kind": "route",
       "name": "draft_reply",
-      "ms": 0.06,
+      "ms": 0.08,
       "attempt": 0,
       "detail": {
         "confidence": 0.9,
@@ -25,56 +35,60 @@
       }
     },
     {
-      "i": 3,
+      "i": 4,
       "kind": "plan",
       "name": "draft_reply",
-      "ms": 0.36,
+      "ms": 0.25,
       "attempt": 0,
       "detail": {
         "args": {
           "tone": "plain",
-          "facts": {
-            "order": {
-              "order_id": "4471",
-              "customer": "Nithya R",
-              "status": "in transit",
-              "zone": "B",
-              "placed": "2026-11-18",
-              "eta": "2026-11-25",
-              "items": 2
-            }
-          }
-        }
-      }
-    },
-    {
-      "i": 4,
-      "kind": "tool_call",
-      "name": "draft_reply",
-      "ms": 0.37,
-      "attempt": 1,
-      "detail": {
-        "args": {
-          "tone": "plain",
-          "facts": {
-            "order": {
-              "order_id": "4471",
-              "customer": "Nithya R",
-              "status": "in transit",
-              "zone": "B",
-              "placed": "2026-11-18",
-              "eta": "2026-11-25",
-              "items": 2
-            }
-          }
+          "facts": {}
         }
       }
     },
     {
       "i": 5,
+      "kind": "approval_request",
+      "name": "draft_reply",
+      "ms": 0.26,
+      "attempt": 0,
+      "detail": {
+        "args": {
+          "tone": "plain",
+          "facts": {}
+        },
+        "cost": 0.006
+      }
+    },
+    {
+      "i": 6,
+      "kind": "approval_granted",
+      "name": "draft_reply",
+      "ms": 0.26,
+      "attempt": 0,
+      "detail": {
+        "approver": "yes"
+      }
+    },
+    {
+      "i": 7,
+      "kind": "tool_call",
+      "name": "draft_reply",
+      "ms": 0.27,
+      "attempt": 1,
+      "detail": {
+        "args": {
+          "tone": "plain",
+          "facts": {}
+        }
+      }
+    },
+    {
+      "i": 8,
       "kind": "tool_result",
       "name": "draft_reply",
-      "ms": 0.38,
+      "ms": 0.27,
       "attempt": 1,
       "detail": {
         "result": {
@@ -85,52 +99,22 @@
       }
     },
     {
-      "i": 6,
-      "kind": "plan",
-      "name": "lookup_order",
-      "ms": 0.39,
-      "attempt": 0,
-      "detail": {
-        "note": "draft needs facts; fetching the referenced order"
-      }
-    },
-    {
-      "i": 7,
-      "kind": "tool_result",
-      "name": "lookup_order",
-      "ms": 0.4,
-      "attempt": 0,
-      "detail": {
-        "result": {
-          "order_id": "4471",
-          "customer": "Nithya R",
-          "status": "in transit",
-          "zone": "B",
-          "placed": "2026-11-18",
-          "eta": "2026-11-25",
-          "items": 2
-        }
-      }
-    },
-    {
-      "i": 8,
-      "kind": "tool_result",
-      "name": "draft_reply",
-      "ms": 0.41,
-      "attempt": 1,
-      "detail": {
-        "result": {
-          "tone": "plain",
-          "body": "Hello Nithya R, order 4471 is in transit and should reach you by 2026-11-25. If it has not arrived by then, reply to this message and we will chase it.",
-          "chars": 151
-        }
-      }
-    },
-    {
       "i": 9,
+      "kind": "charge",
+      "name": "draft_reply",
+      "ms": 0.28,
+      "attempt": 0,
+      "detail": {
+        "cost": 0.006,
+        "spent": 0.006,
+        "ceiling": 0.02
+      }
+    },
+    {
+      "i": 10,
       "kind": "judge",
       "name": "self-check",
-      "ms": 0.44,
+      "ms": 0.3,
       "attempt": 0,
       "detail": {
         "passed": true,
@@ -138,26 +122,32 @@
       }
     },
     {
-      "i": 10,
+      "i": 11,
       "kind": "answer",
       "name": "delivered",
-      "ms": 0.44,
+      "ms": 0.3,
       "attempt": 0,
       "detail": {
-        "chars": 151
+        "chars": 56
       }
     }
   ],
-  "total_ms": 0.56,
+  "total_ms": 0.37,
   "request": "Draft a reply to a customer asking where their parcel is.",
   "ok": true,
   "route": "draft_reply",
-  "answer": "Hello Nithya R, order 4471 is in transit and should reach you by 2026-11-25. If it has not arrived by then, reply to this message and we will chase it.",
+  "budget": {
+    "ceiling": 0.02,
+    "spent": 0.006,
+    "calls": 1,
+    "left": 0.014
+  },
+  "answer": "Thanks for writing in \u2014 we will get back to you shortly.",
   "id": "draft-reply",
   "title": "Draft a reply",
   "shows": [
     "routing",
     "chaining: fetch facts, then write"
   ],
-  "attempt_count": 1
+  "step_count": 11
 }
